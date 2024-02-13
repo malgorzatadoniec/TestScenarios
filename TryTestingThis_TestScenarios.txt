@@ -1,0 +1,543 @@
+Scenario no. 1
+
+Feature: Correct home page layout
+
+Scenario: Correct text in the title and  header
+
+	When user opens “https://trytestingthis.netlify.app/” page
+	Then user sees a title “Try Testing This”
+ 	And user sees a header with text “Your Website to practice Automation Testing”
+
+Scenario: Correct buttons on navigation bar
+
+	When user opens “https://trytestingthis.netlify.app/” page
+	Then user sees navigation bar with buttons “Home” and “Contact”
+
+Scenario: Correct section’s titles in main page section
+
+	When user opens “https://trytestingthis.netlify.app/” page
+	Then user sees main page with two sections: “This is your layout two” and “This is your layout three”
+
+Scenario: Correct title of left side section 
+
+	When user opens “https://trytestingthis.netlify.app/” page
+	Then user sees “This is your layout one” section on the left side
+
+Scenario: Correct text in footer
+
+	When user opens “https://trytestingthis.netlify.app/” page
+	Then user sees footer with text:
+		“Created by Oviya Kandaswamy
+		Thank you for using this Website :)
+		Source code for this website is available here
+		Please suggest any improvements to this website. You can reach me in here”
+
+Scenario no.2 
+
+Feature: Verify if buttons "Home" and "Contact" on navigation bar redirect user to correct pages
+
+Scenario: “Contact” button redirect user to contact page
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	When user clicks on “Contact” button 
+	Then user goes to “https://trytestingthis.netlify.app/contact” page
+
+Scenario: Correct text in main page of contact page
+
+	When user in on “https://trytestingthis.netlify.app/contact” page
+	Then user sees main page with text:
+		“Thank you for using this Website :)
+		Source code for this website is available here
+		Please suggest any improvements to this website. You can reach me here”
+
+Scenario: “Home” button redirect user to home page
+
+	Given user is on “https://trytestingthis.netlify.app/contact” page
+	When user clicks on “Home” button 
+	Then user goes to “https://trytestingthis.netlify.app/” page
+
+Scenario no.3
+
+Scenario: Verify if links on contact page work as expected
+
+	Given user is on “https://trytestingthis.netlify.app/contact” page
+	When user clicks on hyperlink in <sentence> sentence
+	Then user is redirected to <page>
+
+Examples:
+	| sentence | page |
+	|Source code for this website is available here| https://github.com/oviyak/code |
+	| Please suggest any improvements to this website. You can reach me here| https://www.linkedin.com/in/oviyak/ |
+
+
+
+Scenario no. 4
+
+Feature: Verify if section “This is your layout one” contains of every required element and they work as expected
+
+Scenario: Clicking on button “Your Sample Alert Button!”
+
+	Given user is on “https://trytestingthis.netlify.app/” page 
+	When user clicks on button “Your Sample Alert Button!”
+	And pop-up window shows up
+	And user chooses <button>
+	Then <message> shows up under “Your Sample Alert Button!” button
+
+Examples:
+	|button | message|
+	|OK | You Pressed the OK Button!|
+	| Cancel | You Pressed the Cancel Button! |
+
+Scenario: After hovering over tooltip area correct textbox shows up
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	When user hovers over “This is your Sample Tooltip Option” tooltip area 
+	Then user can see text box with text: “This is your Sample Tooltip Text”
+
+Scenario: A sample image has correct title 
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	When user looks at “This is your layout one” section 
+	Then user can see text “This is your sample photo”
+
+Scenario: A sample image is visible
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	When user looks at “This is your layout one” section 
+	Then user can see an image under text “This is your sample photo”
+
+Scenario: A sample image has correct description
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	When user looks at “This is your layout one” section 
+	Then user can see description “This is your description of the photo” under the image
+
+Scenario: Food icons are visible 
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	When user looks at “This is your layout one” section 
+	Then user can see six food icons 
+
+Scenario: Verify if “Double-click me” button has correct description 
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	When user looks at “This is your layout one” section 
+	Then user can see “This is your sample Double Click” text
+
+Scenario: Verify if “Double-click me” button is visible 
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	When user looks at “This is your layout one” section 
+	Then user can see “Double-click me” button under text “This is your sample Double Click”
+
+Scenario: Verify if “Double-click me” button works correctly after double-clicking
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	When user double-clicks on “Double-click me” button 
+	Then user can see message “Your Sample Double Click worked!” under it
+
+Scenario: Verify if “Double-click me” button works correctly after single-click
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	When user single-clicks on “Double-click me” button 
+	Then user can see “” under it
+
+
+Scenario: Verify if elements for drag and drop function have correct captions
+	
+	Given user is on “https://trytestingthis.netlify.app/” page
+	When user looks at “This is your layout one” section 
+	Then user can see “This is your Sample drag and drop” text
+	And user can see “Drag Pizza into the Pizza box:” caption under it
+
+Scenario: Verify if drag and drop function works correctly when pizza picture is not in the box
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	When user looks at “This is your layout one” section 
+	Then pizza picture is visible 
+	And is under empty Pizza box 
+
+Scenario: Verify if user can drag and drop pizza picture into the box
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	When user drags pizza picture into the Pizza box
+	Then Pizza box is not empty
+	And Pizza box has pizza picture inside it
+
+Scenario: Verify if login form is visible and in correct place in “This is your layout one” section 
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	When user goes to the bottom of “This is your layout one” section 
+	Then user can see login page 
+
+Scenario: Verify if login form has correct title
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	When user can see login form 
+	Then the login form has title “This is your Sample login page:”
+
+Scenario: Verify if login form has correct description
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	When user can see login form 
+	Then inside the login form user can see text:
+		”Enter
+		Username:test
+		Password:test
+		to be directed to a new login page and any other value to display error message” 
+
+Scenario: Verify if the login form has all required elements
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	When user can see login form 
+	Then user can see two fields for user input: “Username:” and “Password:”
+	And user can see “Login” button under them
+
+Scenario no. 5
+
+Feature: Verify correct functioning of the login page
+
+Scenario: User logs in with correct credentials
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	When user tries to log in with <username>, <password>
+	And user clicks on “Login” button 
+	Then user is redirected to page: “https://trytestingthis.netlify.app/login.html?uname=test&pwd=test”
+	And user can see text: 
+		“Login Successful :)
+		Click here to go back to the home page”
+
+Examples:
+	|username|password|
+	|test|test|
+
+Scenario: After logging in user can go back to the home page using link 
+	
+	Given user logs in with correct credentials
+	When user clicks on “here” in sentence: “Click here to go back to the home page”
+	Then user is redirected to the home page
+
+Scenario: User logs in with wrong or incomplete credentials
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	When user tries to log in with <username>, <password>
+	And user clicks on “Login” button 
+	Then pop-up window with text “Wrong Credentials! Try again!” shows up
+
+Examples:
+	|username|password|
+	|jkowal|haslo123|
+	|jkowal| ”” |
+	| ”” |haslo123 |
+	| ”” | “” |
+
+Scenario no. 6
+
+Feature: Verify correct layout of main section of home page
+
+Scenario: Verify if Form is visible and has correct title
+
+	When user opens “https://trytestingthis.netlify.app/” page
+	Then user can see text: “This is your sample Form” 
+	And user can see Form under it
+
+Scenario: Verify if there is correct text under the Form 
+	
+	When user opens “https://trytestingthis.netlify.app/” page
+	Then user can see text: 
+		“Some text..
+		Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad 		minim veniam, quis nostrud exercitation ullamco.”
+	under the Form
+
+Scenario: Verify if there is correct caption under “This is your layout three” title
+
+	When user opens “https://trytestingthis.netlify.app/” page
+	Then user can see text: “Title description, Sep 2, 2017” under “This is your layout three”
+
+Scenario: Verify if Table exist and has correct columns
+
+	When user opens “https://trytestingthis.netlify.app/” page
+	Then user can see Table 
+	And the Table contains of five < columns > with < headers >
+
+Examples:
+	| 1 | Firstname | 
+	| 2 | Lastname
+	| 3 | Gender |
+	| 4 | Age |
+	| 5 | Occupation |
+
+
+Scenario no.7
+
+Feature: Verify if all elements of the Form are visible and are working correctly
+
+Scenario: User input in “First name:” and “Last name:” fields
+	
+	Given user is on “https://trytestingthis.netlify.app/” page
+	And fields “First name:” and “Last name:” are visible
+	When user types <name> in “First name:” field
+	And user types <last name> in “Last name:” field
+	And user clicks on “Submit” button
+	Then URL should include < url >
+
+Examples:
+	|name | last name | url |
+	|Jan | Kowalski | fname=Jan+&lname=Kowalski& |
+	|Halina | Kowal| fname=Halina&lname=Kowal& |
+
+Scenario: User chooses gender
+	
+	Given user is on “https://trytestingthis.netlify.app/” page
+	And three options to choose are visible: “Male”, “Female” and “Other”
+	When user clicks on <gender>
+	And user clicks on “Submit” button
+	Then URL should include < url >
+
+Examples:
+	|gender| url |
+	|Male| &gender=male& |
+	|Female| &gender=female& |
+	|Other| &gender=other& |
+
+Scenario: User chooses only one option
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	And user can see text: “Choose an option:” 
+	And user can see text: “Lets you select only one option” under it
+	And user can see drop-down list of options
+	When user expands the list of options
+	And user clicks on <option>
+	And user clicks on “Submit” button
+	Then URL should include < url >
+
+Examples:
+	|option | url |
+	| Option 1 | &option=option+1& |
+	| Option 2 | &option=option+2& |
+	| Option 3 | &option=option+3& |
+
+Scenario: User tries choosing more than one option when he can select only one
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	When user expands the list of options
+	And user clicks on one option
+	And clicks on another option
+	Then the second option will be selected
+
+Scenario: User chooses multiple options
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	And user can see text: “Lets you select multiple options” 
+	And user can see box with list of options under it
+	And user can see text: “Choose applicable options:” under it
+	And user can see three check boxes with options under it
+	When user checks more than one option
+	Then all selected options are checked
+
+Scenario: User chooses multiple options and submits the Form 
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	When user checks <options>
+	And user clicks on “Submit” button
+	Then URL should include < url >
+
+Examples:
+	| options | url |
+	| Option 1, Option 2, Option 3 | &option1=Option+1&option2=Option+2&option3=Option+3& |
+	| Option 1, Option 3 | &option1=Option+1&option3=Option+3& |
+	| Option 2 | &option2=Option+2& |
+
+Scenario: User type a letter and user automatically gets a hint of flavor he can enter
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	And user can see text: “Start typing and it till automatically guess answer:”
+	When user starts to type <letter>
+	And user gets a hint of the word to type 
+	And user clicks on given word
+	Then the field is filled with this word
+
+Examples:
+	|letter|
+	|c|
+	|v|
+	|s|
+	|m|
+	|b|
+	|o|
+	|e|
+
+
+Scenario: User type a letter that doesn’t appear in any flavor available  
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	And user can see text: “Start typing and it till automatically guess answer:”
+	When user starts to type <letter>
+	Then no hint appears 
+
+Examples:
+	|letter|
+	|g|
+	|d|
+	|q|
+
+Scenario: User submits a Form with chosen flavor
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	And user can see text: “Start typing and it till automatically guess answer:”
+	When user type in <flavor>
+	And user clicks on “Submit” button
+	Then URL should include < url >
+
+Example: 
+	|flavor | url |
+	| Mint | &Options=Mint& |
+	| Vanilla | &Options=Vanilla& |
+	|Berry | &Options=Berry&|
+
+Scenario: User chooses color
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	And user can see text: “Select your favorite color:”
+	When user clicks on colors box
+	And user clicks on < colorRGB >
+	And user clicks on “Submit” button
+	Then URL should include < url >
+
+Examples:
+	| color | url |
+	| 216, 24, 81 | &favcolor=%23d81851& |
+	| 209, 0, 202 | &favcolor=%23d100ca& |
+	| 37, 193, 55 | &favcolor=%2325c137& |
+
+
+Scenario: User chooses date
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	And user can see text: “Select a date:”
+	When user clicks on calendar icon 
+	And user clicks on < date >
+	And user clicks on “Submit” button
+	Then URL should include < url >
+
+Examples:
+	| date | url |
+	| 11/09/2021 | &day=2021-11-09& |
+	| 02/12/2024 | &day=2024-02-12& |
+	| 05/16/2028 | &day=2028-05-16& |
+
+Scenario: User chooses value on slider
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	And user can see text: “Scroll to see a range value:”
+	When user moves the slider 
+	Or user clicks on it
+	And user select value 
+	Then selected value is visible on right side of the slider
+
+Scenario: User chooses value on slider and submit the Form
+
+	Given user chose a < value > on slider
+	When user clicks on “Submit” button  	
+	Then URL should include < url >
+
+Examples:
+	| value | url |
+	| 86 | &a=86& |
+	| 18 | &a=18& |
+	| 100 | &a=100& |
+
+
+Scenario: User uploads a file
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	And user can see text: “Select a file:”
+	And user can see “Choose File” button on right side of the text
+	And user can see text: “No file chosen” on right side of the button
+	When user clicks on “Choose File” button
+	And select a file 
+	Then the file is added
+	And name of the file is visible on right side of the button
+
+Scenario: User submits the Form with uploaded file
+	
+	Given user uploaded a < file > in the Form
+	When user clicks on “Submit” button
+	Then URL should include < url >
+
+Examples:
+	| file | url |
+	| test.txt | &myfile=test.txt |
+	| test.docx| &myfile=test.docx|
+	| test.jpg | &myfile=test.jpg |
+
+Scenario: User selects a number from the range 1-5
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	And user can see text: “Select a quantity from a range:”
+	When user uses arrows
+	And user select < number >
+	Or type in <number>
+	And user clicks on “Submit” button
+	Then URL should include < url >
+
+Examples: 
+	|number| url |
+	|1| &quantity=1 |
+	|2| &quantity=2 |
+	|3| &quantity=3 |
+	|4| &quantity=4 |
+	|5| &quantity=5 |
+
+Scenario: User selects a number outside the allowed range
+	
+	Given user is on “https://trytestingthis.netlify.app/” page
+	And user can see text: “Select a quantity from a range:”
+	When user types in <number> 
+	And user clicks on “Submit” button
+	Then pop-up window with text: “Value must be less than or equal to 5.” shows up
+
+Examples:
+	|number|
+	|-1|
+	|-10|
+	|6|
+	|44|
+
+Scenario: User types in text area
+	
+	Given user is on “https://trytestingthis.netlify.app/” page
+	And user can see text: “Long Message:”
+	And user can see text area
+	When user deletes content of text area 
+	And user types < text > in text area
+	And user clicks on “Submit” button 
+	Then URL should include < url >
+
+Examples:
+	| text | url |
+	| test | &message=test |
+	| Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. | &message=Sunt+in+culpa+qui+officia+deserunt+mollit+anim+id+est+laborum+consectetur+adipiscing+elit%2C+sed+do+eiusmod+tempor+incididunt+ut+labore+et+dolore+magna+aliqua.+Ut+enim+ad+minim+veniam%2C+quis+nostrud+exercitation+ullamco. |
+	| “” | &message= |
+
+Scenario: User submits filled form 
+
+	Given user is on “https://trytestingthis.netlify.app/” page
+	And user can see text: “Clicking the submit button will take you to a new tab”
+	And user can see “Submit” button
+	When user clicks on “Submit” button
+	Then the user is taken to “https://www.google.com/” page
+
+Scenario no. 8
+
+Scenario: Verify if links in footer work as expected
+
+	Given user is on “https://trytestingthis.netlify.app/contact” page
+	When user clicks on hyperlink in <sentence> sentence
+	Then user is redirected to <page>
+
+Examples:
+| sentence | page |
+|Source code for this website is available here| https://github.com/oviyak/code |
+| Please suggest any improvements to this website. You can reach me here| https://www.linkedin.com/in/oviyak/ |
+
