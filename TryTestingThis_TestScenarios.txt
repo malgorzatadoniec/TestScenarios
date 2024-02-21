@@ -291,7 +291,7 @@ Scenario: User input in “First name:” and “Last name:” fields
 
 Examples:
 	|name | last name | url |
-	|Jan | Kowalski | fname=Jan+&lname=Kowalski& |
+	|Jan | Kowalski | fname=Jan&lname=Kowalski& |
 	|Halina | Kowal| fname=Halina&lname=Kowal& |
 
 Scenario: User chooses gender
