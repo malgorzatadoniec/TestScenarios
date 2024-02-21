@@ -267,7 +267,7 @@ Scenario: Verify if Table exist and has correct columns
 	And the Table contains of five < columns > with < headers >
 
 Examples:
-	| conlumn | headers |
+	| columns | headers |
 	| 1 | Firstname | 
 	| 2 | Lastname
 	| 3 | Gender |
