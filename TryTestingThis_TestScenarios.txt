@@ -31,6 +31,7 @@ Scenario: Correct text in footer
 		Thank you for using this Website :)
 		Source code for this website is available here
 		Please suggest any improvements to this website. You can reach me in here”
+
 
 Scenario no.2 
 
@@ -55,6 +56,8 @@ Scenario: “Home” button redirect user to home page
 	Given user is on “https://trytestingthis.netlify.app/contact” page
 	When user clicks on “Home” button 
 	Then user goes to “https://trytestingthis.netlify.app/” page
+
+
 
 Scenario no.3
 
@@ -192,6 +195,8 @@ Scenario: Verify if the login form has all required elements
 	When user can see login form 
 	Then user can see two fields for user input: “Username:” and “Password:”
 	And user can see “Login” button under them
+
+
 
 Scenario no. 5
 
@@ -231,6 +236,7 @@ Examples:
 	| ”” |haslo123 |
 	| ”” | “” |
 
+
 Scenario no. 6
 
 Feature: Verify correct layout of main section of home page
@@ -261,6 +267,7 @@ Scenario: Verify if Table exist and has correct columns
 	And the Table contains of five < columns > with < headers >
 
 Examples:
+	| conlumn | headers |
 	| 1 | Firstname | 
 	| 2 | Lastname
 	| 3 | Gender |
@@ -268,6 +275,7 @@ Examples:
 	| 5 | Occupation |
 
 
+
 Scenario no.7
 
 Feature: Verify if all elements of the Form are visible and are working correctly
@@ -527,6 +535,8 @@ Scenario: User submits filled form
 	And user can see “Submit” button
 	When user clicks on “Submit” button
 	Then the user is taken to “https://www.google.com/” page
+
+
 
 Scenario no. 8
 
