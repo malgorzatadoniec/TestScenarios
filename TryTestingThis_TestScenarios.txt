@@ -334,13 +334,19 @@ Scenario: User tries choosing more than one option when he can select only one
 	Then the second option will be selected
 
 
-Scenario: User chooses multiple options and submits the Form 
+Scenario: User chooses multiple options
 
 	Given user is on “https://trytestingthis.netlify.app/” page
 	And user can see text: “Lets you select multiple options” 
 	And user can see box with list of options under it
 	And user can see text: “Choose applicable options:” under it
 	And user can see three check boxes with options under it
+	When user checks more than one option
+	Then all selected options are checked
+
+Scenario: User chooses multiple options and submits the Form 
+
+	Given user is on “https://trytestingthis.netlify.app/” page
 	When user checks <options>
 	And user clicks on “Submit” button
 	Then URL should include < url >
